@@ -109,7 +109,10 @@
                   var url = response.external_urls.spotify;
                   var href = response.href;
                   userProfilePlaceholder.innerHTML = userProfileTemplate({
-                    display_name: display_name,
+                    display_name: function() {
+                      var names = display_name.split(" ")
+                      return names[0]
+                    },
                     url: url,
                     href: href,
                   });
