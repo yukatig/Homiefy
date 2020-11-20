@@ -33,9 +33,11 @@ body, html {
 h1{
   font-size: 140px;
   margin: 0px;
+  font-weight: 300;
 }
 
 p{
   margin-top: 55px;
   font-size: 70px;
+  font-weight: 300;
 }
