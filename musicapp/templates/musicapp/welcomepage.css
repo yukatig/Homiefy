@@ -1,0 +1,91 @@
+@font-face {
+    font-family: UrbanRetro;
+    src: url('UrbanRetro.woff');
+  }
+  
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .bg-image {
+    background-image: url("./tokyobg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.73;
+    z-index: -5;
+  }
+  
+  .container{
+    font-family: UrbanRetro;
+    position: fixed;
+    left: 400px;
+    top: 100px;
+    width: 1000px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;
+  }
+  
+  h1{
+    font-size: 140px;
+    margin: 0px;
+    font-weight: 300;
+  }
+
+  .container2{
+    font-family: UrbanRetro;
+    position: fixed;
+    left: 750px;
+    top: 250px;
+    width: 1000px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;
+  }
+
+  h2{
+    font-size: 140px;
+    margin: 0px;
+    font-weight: 300;
+  }
+
+  .container3{
+    font-family: UrbanRetro;
+    position: fixed;
+    left: 150px;
+    top: 400px;
+    width: 1500px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;
+  }
+
+  p{
+    margin-top: 55px;
+    font-size: 80px;
+    font-weight: 300;
+  }
+
+  .arrow {
+    position: fixed;
+    left: 640px;
+    bottom: 150px;
+    height: 500px;
+    width: 500px;
+    transform: rotate(90deg);
+  }
+
+  /* .bg-image2{
+    background-image: url("./aboutpg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.73;
+  } */
