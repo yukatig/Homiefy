@@ -17,6 +17,7 @@ body, html {
   background-size: cover;
   position: relative;
   opacity: 0.73;
+  z-index: -5;
 }
 
 .container{
@@ -28,6 +29,7 @@ body, html {
   height: 200px;
   background-color: none;
   padding: 0px;
+  /* z-index: 4; */
 }
 
 h1{
@@ -40,4 +42,20 @@ p{
   margin-top: 55px;
   font-size: 70px;
   font-weight: 300;
+}
+
+button{
+  font-family: UrbanRetro;
+  font-size: 23px;
+  position: fixed;
+  left: 640px;
+  bottom: 150px;
+  width: 250px;
+  height: 55px;
+  border: none;
+  background: url('./pink\ red.jpg') no-repeat;
+}
+
+.button5{
+  border-radius: 35px;;
 }
