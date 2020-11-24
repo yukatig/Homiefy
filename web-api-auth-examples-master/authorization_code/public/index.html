@@ -3,6 +3,7 @@
   <head>
     <title>Example of the Authorization Code flow with Spotify</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style type="text/css">
       #login, #loggedin {
         display: none;
@@ -19,7 +20,8 @@
   <body>
     <div class="container">
       <div id="login">
-        <h1>Welcome to Homiefy! Please login.</h1>
+        <h1>Homiefy</h1>
+        <h2 id="discover">Discover your musical mutuals</h2>
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
       <div id="loggedin">
@@ -32,20 +34,17 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
+      <button id="logout">Logout</button>
+      <h1>WELCOME</h1>
+      <a href="{{url}}"><h1 id="big_name">{{display_name}}</h1></a>
+      <h2>MEET YOUR MUSICAL MATCH BELOW</h2>
       <div class="media">
-        <div class="pull-left">
+        <!--<div class="pull-left">
           <img class="media-object" width="150" src="{{images.0.url}}" />
-        </div>
+        </div>-->
         <div class="media-body">
           <dl class="dl-horizontal">
-            <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-            <dt>Id</dt><dd>{{id}}</dd>
-            <dt>Email</dt><dd>{{email}}</dd>
-            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-            <dt>Country</dt><dd>{{country}}</dd>
+            <!--<dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>--> <!--Link that doesn't do anything yet-->
           </dl>
         </div>
       </div>
@@ -62,6 +61,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script>
+
       (function() {
 
         /**
@@ -97,10 +97,10 @@
         } else {
           if (access_token) {
             // render oauth info
-            oauthPlaceholder.innerHTML = oauthTemplate({
+            /*oauthPlaceholder.innerHTML = oauthTemplate({
               access_token: access_token,
               refresh_token: refresh_token
-            });
+            });*/
 
             $.ajax({
                 url: 'https://api.spotify.com/v1/me',
@@ -108,10 +108,28 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+                  var display_name = response.display_name.toUpperCase();
+                  var url = response.external_urls.spotify;
+                  var href = response.href;
+                  userProfilePlaceholder.innerHTML = userProfileTemplate({
+                    display_name: function() {
+                      var names = display_name.split(" ")
+                      return names[0]
+                    },
+                    url: url,
+                    href: href,
+                  });
 
                   $('#login').hide();
                   $('#loggedin').show();
+
+                  var logoutButton = document.getElementById('logout');
+                  logoutButton.addEventListener('click', function () {
+                    const url = 'https://www.spotify.com/logout/';
+                    const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40');
+                    setTimeout(() => spotifyLogoutWindow.close(), 2000);
+                  });
+
                 }
             });
           } else {
@@ -119,6 +137,8 @@
               $('#login').show();
               $('#loggedin').hide();
           }
+
+          document.getElementById('obtain-new-token').style.display = "none";
 
           document.getElementById('obtain-new-token').addEventListener('click', function() {
             $.ajax({
