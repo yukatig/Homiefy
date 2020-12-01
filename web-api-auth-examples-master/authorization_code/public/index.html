@@ -20,9 +20,9 @@
   <body>
     <div class="container">
       <div id="login">
-        <h1>Homiefy</h1>
-        <h2 id="discover">Discover your musical mutuals</h2>
-        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+        <h1>HOMIEFY</h1>
+        <p id="discover">DISCOVER YOUR MUSIC MUTUALS</p>
+        <a href="/login" class="btn btn-primary">Sign in with Spotify</a>
       </div>
       <div id="loggedin">
         <div id="user-profile">
@@ -35,9 +35,9 @@
 
     <script id="user-profile-template" type="text/x-handlebars-template">
       <button id="logout">Logout</button>
-      <h1>WELCOME</h1>
+      <h1 id="welcome">WELCOME</h1>
       <a href="{{url}}"><h1 id="big_name">{{display_name}}</h1></a>
-      <h2>MEET YOUR MUSICAL MATCH BELOW</h2>
+      <h2 id="tagline">MEET YOUR MUSICAL MATCH BELOW</h2>
       <div class="media">
         <!--<div class="pull-left">
           <img class="media-object" width="150" src="{{images.0.url}}" />
@@ -47,9 +47,9 @@
             <!--<dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>--> <!--Link that doesn't do anything yet-->
           </dl>
         </div>
-      </div>
+      </div> 
     </script>
-
+    
     <script id="oauth-template" type="text/x-handlebars-template">
       <h2>oAuth info</h2>
       <dl class="dl-horizontal">
