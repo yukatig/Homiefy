@@ -18,6 +18,8 @@
   </head>
 
   <body>
+    <img id='loginbg' src='../templates/musicapp/homebg.jpg'>
+    <img id='welcomebg' src='../templates/musicapp/tokyobg.jpg'>
     <div class="container">
       <div id="login">
         <h1>HOMIEFY</h1>
@@ -34,10 +36,14 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <button id="logout">Logout</button>
+      <!--<button id="logout">Logout</button>-->
       <h1 id="welcome">WELCOME</h1>
       <a href="{{url}}"><h1 id="big_name">{{display_name}}</h1></a>
-      <h2 id="tagline">MEET YOUR MUSICAL MATCH BELOW</h2>
+
+      <!--TODO-->
+      <a href="PLACEHOLDER"><h2 id="tagline">MEET YOUR MUSICAL MATCH!</h2></a>
+      <!--TODO-->
+
       <div class="media">
         <!--<div class="pull-left">
           <img class="media-object" width="150" src="{{images.0.url}}" />
@@ -121,7 +127,9 @@
                   });
 
                   $('#login').hide();
+                  $('#loginbg').hide();
                   $('#loggedin').show();
+                  $('#welcomebg').show();
 
                   var logoutButton = document.getElementById('logout');
                   logoutButton.addEventListener('click', function () {
@@ -135,7 +143,9 @@
           } else {
               // render initial screen
               $('#login').show();
+              $('#loginbg').show();
               $('#loggedin').hide();
+              $('#welcomebg').hide();
           }
 
           document.getElementById('obtain-new-token').style.display = "none";

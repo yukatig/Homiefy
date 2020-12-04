@@ -1,25 +1,34 @@
-@font-face {
+/*@font-face {
     font-family: 'lemonmilkregular';
     src: url('lemonmilk-webfont.woff2') format('woff2'),
          url('lemonmilk-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 @font-face {
-    font-family: UrbanRetro;
-    src: url('/musicapp/templates/musicapp/UrbanRetro.woff') format('woff');
+    font-family: 'UrbanRetro';
+    src: url('../templates/musicapp/UrbanRetro.woff') format('woff');
+}
+
+#loginbg {
+    position: fixed;
+    opacity: 70%;
+    max-width: 100%;
+    height: auto;
+}
+
+#welcomebg {
+    position: fixed;
+    opacity: 70%;
+    max-width: 100%;
+    height: auto;
 }
 
 body {
-    font-family: UrbanRetro;
-    background-image: url("/musicapp/templates/musicapp/tokyobg.jpg");
+    font-family: 'UrbanRetro';
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: relative;
-    opacity: 0.73;
     z-index: -5;
     margin: 0;
     padding: 0;     
@@ -39,21 +48,28 @@ body {
 .btn {
     font-size: 23px;
     position: fixed;
-    left: 640px;
+    left: 40%;
     bottom: 150px;
     width: 250px;
     height: 55px;
     border: none;
-    /*background: url('/musicapp/templates/musicapp/pink\ red.jpg') no-repeat;  */
+    background: rgb(255,63,25);
+    background: linear-gradient(0deg, rgba(255,63,25,1) 0%, rgba(253,45,210,1) 100%);
 } 
 
 #welcome {
     position: fixed;
-    left: 400px;
+    left: 20%;
     top: 100px;
     width: 1000px;
     height: 200px;
     background-color: none;
+    padding: 0px;
+}
+
+#discover {
+    color: black;
+    margin: 0px;
     padding: 0px;
 }
 
@@ -66,7 +82,8 @@ h1 {
 
 #big_name {
     position: fixed;
-    left: 750px;
+    text-align: right;
+    right: 20%;
     top: 250px;
     width: 1000px;
     height: 200px;
@@ -77,23 +94,19 @@ h1 {
 
 a {
     text-decoration: none;
+    text-align: right;
 }  
  
 #tagline {
     position: fixed;
-    left: 150px;
-    top: 400px;
-    width: 1500px;
-    height: 200px;
+    text-align: center;
+    left: 25%;
+    font-size: 50px;
+    top: 75%;
     background-color: none;
-    padding: 0px;      
+    padding: 0px;   
+    color: black;   
 }
-
-p {
-    margin-top: 55px;
-    font-size: 80px;
-    font-weight: 300;
-} 
 
 #logout {
     color: black;
