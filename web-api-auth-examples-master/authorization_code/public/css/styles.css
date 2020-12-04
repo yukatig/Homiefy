@@ -6,33 +6,131 @@
     font-style: normal;
 }
 
-#big_name {
-    text-align: right;
-    color: white;
-    margin-top: -40px;
+@font-face {
+    font-family: UrbanRetro;
+    src: url('/musicapp/templates/musicapp/UrbanRetro.woff') format('woff');
+}
+
+body {
+    font-family: UrbanRetro;
+    background-image: url("/musicapp/templates/musicapp/tokyobg.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.73;
+    z-index: -5;
+    margin: 0;
+    padding: 0;     
+}
+
+.container{
+    position: fixed;
+    left: 80px;
+    top: 100px;
+    width: 1000px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;
+    /* z-index: 4; */
+}
+
+.btn {
+    font-size: 23px;
+    position: fixed;
+    left: 640px;
+    bottom: 150px;
+    width: 250px;
+    height: 55px;
+    border: none;
+    /*background: url('/musicapp/templates/musicapp/pink\ red.jpg') no-repeat;  */
+} 
+
+#welcome {
+    position: fixed;
+    left: 400px;
+    top: 100px;
+    width: 1000px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;
 }
 
 h1 {
+    font-size: 140px;
+    margin: 0px;
+    font-weight: 300;
+    color: black;
+}
+
+#big_name {
+    position: fixed;
+    left: 750px;
+    top: 250px;
+    width: 1000px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}  
+ 
+#tagline {
+    position: fixed;
+    left: 150px;
+    top: 400px;
+    width: 1500px;
+    height: 200px;
+    background-color: none;
+    padding: 0px;      
+}
+
+p {
+    margin-top: 55px;
+    font-size: 80px;
+    font-weight: 300;
+} 
+
+#logout {
+    color: black;
+    margin-top: 20px; 
+}
+
+/* #big_name {
+    text-align: right;
+    color: white;
+    margin-top: -40px;      
+} */
+    
+/* h1 {
     margin: 0;
     margin-right: 20px;
     margin-top: 50px;
     font-size: 100px;
     font-weight: bold;
-    letter-spacing: 40px;
-}
-
-h2 {
+    letter-spacing: 40px;     
+} */
+    
+/* #tagline {
     text-align: center;
     margin-top: 60px;
-    font-weight: bold;
-}
-
-body {
+    font-weight: bold;     
+} */
+    
+/* body {
     background-color: rgb(168, 218, 203);
-    font-family: 'lemonmilkregular';
-}
-
-a {
+    font-family: 'lemonmilkregular';     
+} */
+    
+/* a {
     color: #FFFFFF;
-    text-decoration: none;
-}
+    text-decoration: none;      
+}  */
+   
+
+
+
