@@ -69,8 +69,9 @@ body {
 
 #discover {
     color: black;
-    margin: 0px;
+    margin-top: 30px;
     padding: 0px;
+    font-size: 70px;
 }
 
 h1 {
