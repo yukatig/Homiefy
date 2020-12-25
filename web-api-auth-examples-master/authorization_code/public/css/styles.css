@@ -99,9 +99,9 @@ a {
 }  
  
 #tagline {
+    display: flex;
     position: fixed;
-    text-align: center;
-    left: 25%;
+    justify-self: center;
     font-size: 50px;
     top: 75%;
     background-color: none;

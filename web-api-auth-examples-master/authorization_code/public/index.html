@@ -36,7 +36,7 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <!--<button id="logout">Logout</button>-->
+      <button id="logout">Logout</button>
       <h1 id="welcome">WELCOME</h1>
       <a href="{{url}}"><h1 id="big_name">{{display_name}}</h1></a>
 
@@ -131,12 +131,15 @@
                   $('#loggedin').show();
                   $('#welcomebg').show();
 
+                  
                   var logoutButton = document.getElementById('logout');
                   logoutButton.addEventListener('click', function () {
                     const url = 'https://www.spotify.com/logout/';
                     const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40');
                     setTimeout(() => spotifyLogoutWindow.close(), 2000);
+                    window.location.href = '/';
                   });
+                  
 
                 }
             });
