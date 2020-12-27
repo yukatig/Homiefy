@@ -44,7 +44,7 @@
   }
   
   .container{
-    font-family: ProximaNovea;
+    font-family: UrbanRetro;
     position: absolute;
     left: 150px;
     top: 200px;
@@ -61,7 +61,7 @@
   }
 
   .container2{
-    font-family: ProximaNovea;
+    font-family: UrbanRetro;
     position: absolute;
     left: 160px;
     top: 320px;
@@ -78,11 +78,11 @@
   }
 
   .container3{
-    font-family: ProximaNovaBold;
+    font-family: UrbanRetro;
     font-weight: 600;
     position: absolute;
     left: 165px;
-    top: 400px;
+    top: 450px;
     /* width: 1500px;
     height: 200px; */
     /* background-color: none; */
@@ -94,9 +94,48 @@
     font-size: 80px;
     font-weight: 300;
   }
+  .container7{
+    font-family: UrbanRetro;
+    position: absolute;
+    left: 80px;
+    top: 1500px;
+    /*width: 1000px;
+    height: 200px;*/
+    background-color: none;
+    padding: 0px;
+  }
+  
+  h5{
+    font-size: 140px;
+    margin: 0px;
+    font-weight: 300;
+  }
+  
+  h6{
+    margin-top: 55px;
+    font-size: 140px;
+    font-weight: 300;
+    left: 0px;
+  }
+
+  button{
+    font-family: UrbanRetro;
+    font-size: 23px;
+    position: absolute;
+    left: 640px;
+    top: 1900px;
+    width: 250px;
+    height: 55px;
+    border: none;
+    background: url('./pink\ red.jpg') no-repeat;
+  }
+  
+  .button5{
+    border-radius: 35px;;
+  }
 
   .container4{
-    font-family: ProximaNovea;
+    font-family: UrbanRetro;
     position: absolute;
     left: 150px;
     top: 825px;
@@ -107,15 +146,21 @@
     padding: 0px;
   }
 
+  h4{
+    font-size: 140px;
+    margin: 0px;
+    font-weight: 300;
+  }
+
   .container5{
-    font-family: ProximaNovaBold;
+    font-family: UrbanRetro;
     font-size: 35px;
     font-weight: 800;
     color: white;
     position: absolute;
     text-align: left;
     left: 150px;
-    top: 960px;
+    top: 1000px;
     width: 1100px;
     /* height: 200px;  */
     /* background-color: none; */
@@ -148,7 +193,7 @@
     display: flex;
     list-style: none;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-around;
   } 
   
   .navbar ul li {
@@ -160,7 +205,7 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #f4f4f4;
-    font-family: ProximaNovea;
+    font-family: UrbanRetro;
     font-size: 29px;
     position: absolute;
     top: 10px;
@@ -192,9 +237,13 @@
   section#about {
     background: url('./opacblack.png') no-repeat center center/cover;;
   }
+
+  section#connect {
+    background: url('./opacfriend.png') no-repeat center center/cover;;
+  }
   
   section#playlist{   
-    background: url('./opactokyo.png') no-repeat center center/cover;;
+    background: url('./opacblack.png') no-repeat center center/cover;;
   }
 
 
