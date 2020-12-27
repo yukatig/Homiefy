@@ -60,10 +60,31 @@ app.get('/play', function(req, res) {
         };
 
         request.get(options, function(error, response, body) {
-          console.log(body);
+          
+          playdata = JSON.parse(body);
+          //console.log(playdata.items[0].track.album);
+
+          ourPlaylist = [];
+
+          var songs = playdata.items;
+
+          for(var i = 0; i < songs.length; i++) {
+            var artistlink = songs[i].track.album.artists[0].external_urls.spotify;
+            var artistname = songs[i].track.album.artists[0].name;
+            var songlink = songs[i].track.external_urls.spotify;
+            var image = songs[i].track.album.images[0].url;
+            var songname = songs[i].track.name;
+            ourPlaylist.push({
+              artref: artistlink,
+              artname: artistname,
+              songref: songlink,
+              name: songname,
+              cover: image
+            });
+          }
 
           res.render('play', {
-            'playlist': 'json'
+            'playlist': ourPlaylist
           });
         });
 

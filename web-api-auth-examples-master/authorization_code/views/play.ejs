@@ -6,6 +6,11 @@
     <title>Playlists</title>
 </head>
 <body>
-    <h1><%= playlist %>Listen With Your Friends</h1>
+    <h1>Listen With Your Friends</h1>
+    <% for (var j = 0; j < ourPlaylist.length; j++) { %>
+        <h6>
+            <%= ourPlaylist[j].name %>
+        </h6>
+    <% } %>
 </body>
 </html>
