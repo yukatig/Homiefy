@@ -13,6 +13,8 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
+var global_access_token;
+
 var client_id = '22c6082ec6974b168bb64b966f927bcf'; // Your client id
 var client_secret = 'a46390a2779f47bea29ff16b856f6152'; // Your secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
@@ -36,9 +38,34 @@ var stateKey = 'spotify_auth_state';
 
 var app = express();
 
+// View engine setup 
+app.set('view engine', 'ejs'); 
+
 app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
+
+
+app.get('/play', function(req, res) {
+
+        var access_token = global_access_token;
+
+        var options = {
+          url: 'https://api.spotify.com/v1/me/player/recently-played?limit=10',
+          headers: { 'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + access_token }
+        };
+
+        request.get(options, function(error, response, body) {
+          console.log(body);
+          res.render('play', {
+            playlist: 'bruh',
+          }); 
+        });
+
+});
+
 
 app.get('/login', function(req, res) {
 
@@ -46,7 +73,7 @@ app.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // your application requests authorization
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-read-private user-read-email user-read-recently-played';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -91,6 +118,8 @@ app.get('/callback', function(req, res) {
 
         var access_token = body.access_token,
             refresh_token = body.refresh_token;
+
+            global_access_token = access_token;
 
         var options = {
           url: 'https://api.spotify.com/v1/me',
