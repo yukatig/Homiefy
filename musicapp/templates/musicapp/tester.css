@@ -167,6 +167,24 @@
     padding: 0px;
   }
 
+  .container8{
+    font-family: UrbanRetro;
+    position: absolute;
+    color: white;
+    left: 80px;
+    top: 2200px;
+    /*width: 1000px;
+    height: 200px;*/
+    background-color: none;
+    padding: 0px;
+  }
+  
+  h7{
+    font-size: 140px;
+    margin: 0px;
+    font-weight: 300;
+  }
+
   .arrow {
     position: fixed;
     left: 640px;
