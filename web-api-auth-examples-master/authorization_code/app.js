@@ -61,9 +61,10 @@ app.get('/play', function(req, res) {
 
         request.get(options, function(error, response, body) {
           console.log(body);
+
           res.render('play', {
-            playlist: 'bruh',
-          }); 
+            'playlist': 'json'
+          });
         });
 
 });
