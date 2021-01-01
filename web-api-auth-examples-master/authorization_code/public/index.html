@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Example of the Authorization Code flow with Spotify</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -19,12 +21,12 @@
 
   <body>
     <img id='loginbg' src='../templates/musicapp/homebg.jpg'>
-    <img id='welcomebg' src='../templates/musicapp/tokyobg.jpg'>
+    <!-- <img id='welcomebg' src='../templates/musicapp/aboutfinal.png'> -->
     <div class="container">
       <div id="login">
         <h1>HOMIEFY</h1>
         <p id="discover">DISCOVER YOUR MUSIC MUTUALS</p>
-        <a href="/login" class="btn btn-primary">Sign in with Spotify</a>
+        <a href="/login" class="btn btn-primary">SIGN IN WITH SPOTIFY</a>
       </div>
       <div id="loggedin">
         <div id="user-profile">
@@ -35,15 +37,27 @@
       </div>
     </div>
 
-    <script id="user-profile-template" type="text/x-handlebars-template">
-      <button id="logout">Logout</button>
-      <h1 id="welcome">WELCOME</h1>
-      <a href="{{url}}"><h1 id="big_name">{{display_name}}</h1></a>
-
+    <!-- <script id="user-profile-template" type="text/x-handlebars-template"> -->
+        <nav class="navbar">
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#connect">Connect</a></li>
+          </ul>
+          <button id="logout">Logout</button>
+        </nav>
+        <div id="home">
+          <h1 id="welcome">WELCOME,</h1>  
+        </div>
+        <div id="about">
+          <h1> About us</h1>
+        </div>
+        <div id="connect">
+          <h1>Connect</h1>
+        </div>
+      
       <!--TODO-->
-      <a href="templates/musicapp/friendpage.html"><h2 id="tagline">MEET YOUR MUSICAL MATCH!</h2></a>
-      <!--TODO-->
-      <a href="/play" class="btn btn-primary">Playlist</a>
+      <a href="/play" class="btn btn-primary" id="playlist">Playlist</a>
 
       <div class="media">
         <!--<div class="pull-left">
@@ -150,7 +164,7 @@
               $('#loginbg').show();
               $('#loggedin').hide();
               $('#welcomebg').hide();
-          }
+            }
 
           document.getElementById('obtain-new-token').style.display = "none";
 
@@ -170,6 +184,7 @@
           }, false);
         }
       })();
+
     </script>
   </body>
 </html>
