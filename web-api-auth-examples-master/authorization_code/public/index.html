@@ -21,7 +21,7 @@
 
   <body>
     <img id='loginbg' src='../templates/musicapp/homebg.jpg'>
-    <!-- <img id='welcomebg' src='../templates/musicapp/aboutfinal.png'> -->
+    <img id='welcomebg' src='../templates/musicapp/aboutfinal.png'>
     <div class="container">
       <div id="login">
         <h1>HOMIEFY</h1>
@@ -37,16 +37,23 @@
       </div>
     </div>
 
-    <!-- <script id="user-profile-template" type="text/x-handlebars-template"> -->
+    <script id="user-profile-template" type="text/x-handlebars-template">
         <nav class="navbar">
           <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#connect">Connect</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="connect.html">Connect</a></li>
           </ul>
           <button id="logout">Logout</button>
         </nav>
-        <div id="home">
+        <div class="container2">
+          <div id="home">
+            <h1 id="welcome">WELCOME,</h1>
+            <h1 id="big_name">{{display_name}}</h1>
+            <p id="tagline">MEET YOUR MUSICAL MATCH!</p>
+          </div>
+        </div>
+        <!-- <div id="home">
           <h1 id="welcome">WELCOME,</h1>  
         </div>
         <div id="about">
@@ -54,10 +61,10 @@
         </div>
         <div id="connect">
           <h1>Connect</h1>
-        </div>
+        </div> -->
       
       <!--TODO-->
-      <a href="/play" class="btn btn-primary" id="playlist">Playlist</a>
+      <!-- <a href="/play" class="btn btn-primary" id="playlist">Playlist</a> -->
 
       <div class="media">
         <!--<div class="pull-left">

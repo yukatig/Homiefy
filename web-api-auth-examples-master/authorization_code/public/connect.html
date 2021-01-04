@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="connect.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#connect">Connect</a></li>
+        </ul>
+        <button id="logout">Logout</button>
+    </nav>
+    <div id="connect" class="container">
+        <h1>CONNECT YOUR HOMIE</h1>
+    </div>
+    <button id="share" class="btn btn-primary">SHARE THIS LINK</button>
+    <a href="/play" class="btn btn-primary" id="playlist">PLAYLIST</a>
+    
+
+    <script>
+        var logoutButton = document.getElementById('logout');
+        logoutButton.addEventListener('click', function () {
+            const url = 'https://www.spotify.com/logout/';
+            const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40');
+            setTimeout(() => spotifyLogoutWindow.close(), 2000);
+            window.location.href = '/';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="connect.html">Connect</a></li>
+        </ul>
+        <button id="logout">Logout</button>
+    </nav>
+    <div id="about" class="container">
+        <h1>ABOUT US</h1>
+        <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. QUOD IAM A ME EXPECTARE NOLI. QUID, CUM FICTAS FABULAS, E QUIBUS UTILITAS NULLA ELICI POTEST, CUM VOLUPTATE LEGIMUS? SIC CONSEQUENTIBUS VESTRIS SUBLATIS PRIMA TOLLUNTUR. DUO REGES: CONSTRUCTIO INTERRETE. UT ALIOS OMITTAM, HUNC APPELLO, QUEM ILLE UNUM SECUTUS EST. ERGO ID EST CONVENIENTER NATURAE VIVERE, A NATURA DISCEDERE. UNIVERSA ENIM ILLORUM RATIONE CUM TOTA VESTRA CONFLIGENDUM PUTO.</p>
+    </div>
+
+    <script>
+        var logoutButton = document.getElementById('logout');
+        logoutButton.addEventListener('click', function () {
+            const url = 'https://www.spotify.com/logout/';
+            const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40');
+            setTimeout(() => spotifyLogoutWindow.close(), 2000);
+            window.location.href = '/';
+            });
+    </script>
+</body>
+</html>

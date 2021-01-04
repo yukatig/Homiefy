@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'UrbanRetro';
+    src: url('templates/musicapp/UrbanRetro.woff') format('woff');
+}
+
+body {
+    background: url("templates/musicapp/opacconnect.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: UrbanRetro;
+}
+
+.container {
+    font-family: UrbanRetro;
+    position: absolute;
+    left: 6%;
+    top: 20%;
+    width: fit-content;
+    height: fit-content; 
+    background-color: none;
+    padding: 0px;
+    text-align: left;
+} 
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 5;
+    text-align: right;
+}
+  
+.navbar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+} 
+  
+.navbar ul li {
+    padding: 1rem;
+    float: left;
+} 
+  
+.navbar ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f4f4f4;
+    font-family: UrbanRetro;
+    font-size: 28px;
+    text-align: center;
+}
+  
+.navbar ul li a:hover {
+    color: purple;
+}
+
+h1{
+    font-size: 120px;
+    margin: 0px;
+    font-weight: 300;
+    color: black
+}
+
+.btn {
+    font-size: 20px;
+    width: 250px;
+    height: 55px;
+    border: none;
+    background: rgb(255,63,25);
+    background: linear-gradient(0deg, rgba(255,63,25,1) 0%, rgba(253,45,210,1) 100%);
+} 
+
+#share {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+#playlist {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+}
