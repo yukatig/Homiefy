@@ -21,6 +21,9 @@ var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 var global_access_token;
 
+const fs = require('fs');
+
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -69,12 +72,21 @@ app.get('/play', function(req, res) {
           var songs = playdata.items;
 
           for(var i = 0; i < songs.length; i++) {
+            var songID = songs[i].track.id;
+            fs.appendFile('storeID.txt', songID + '\n', (err) => {
+              // throws an error, you could also catch it here
+              if (err) throw err;
+          
+              // success case, the file was saved
+              console.log('ID saved!');
+            });
             var artistlink = songs[i].track.album.artists[0].external_urls.spotify;
             var artistname = songs[i].track.album.artists[0].name;
             var songlink = songs[i].track.external_urls.spotify;
             var image = songs[i].track.album.images[1].url;
             var songname = songs[i].track.name;
             ourPlaylist.push({
+              id: songID,
               artref: artistlink,
               artname: artistname,
               songref: songlink,
@@ -276,3 +288,30 @@ request(options, callback); */
 
 console.log('Listening on 8888');
 app.listen(8888);
+
+
+
+/**
+ * DATABASE
+ */
+
+/*
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "myusername",
+  password: "mypassword"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  /*Create a database named "mydb":
+  con.query("CREATE DATABASE mydb", function (err, result) {
+    if (err) throw err;
+    console.log("Database created");
+  });
+});
+*/
+
