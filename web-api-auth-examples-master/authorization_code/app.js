@@ -289,6 +289,17 @@ request(options, callback); */
 console.log('Listening on 8888');
 app.listen(8888);
 
+/**
+ * CODE FOR STORING USER STUFF IN JSON OBJECT
+  app.post('/users', function (req, res) {
+    const user = req.body
+    fs.appendFile('users.txt', JSON.stringify({ name: user.name, age: user.age }), (err) => {
+        res.send('successfully registered')
+    })
+})
+{ username: user.name, list: [use a for loop here to put id into list] }
+list: []
+ */
 
 
 /**
