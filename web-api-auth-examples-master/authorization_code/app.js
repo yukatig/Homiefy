@@ -95,6 +95,7 @@ app.get('/play', function(req, res) {
             });
           }
 
+          app.use(express.static("public"));
           res.render('play', {
             'playlist': ourPlaylist
           });
