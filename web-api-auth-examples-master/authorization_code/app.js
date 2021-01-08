@@ -101,6 +101,9 @@ app.get('/play', function(req, res) {
 
           var datastr = fs.readFileSync('storeID.txt', 'utf8');
 
+          console.log(datastr);
+          console.log(datastr == "");
+
           /*
           var dataArray = datastr.split("*");
 
@@ -117,14 +120,33 @@ app.get('/play', function(req, res) {
             display_name: display_name
           };
 
+          var userArray;
+
+          if(datastr == "") {
+            userArray = [];
+            userArray.push(userObject);
+          }
+          else {
+            userArray = JSON.parse(datastr);
+            var notfound = true;
+            userArray.forEach((element) => {
+              if(element.id == userID) {
+                notfound = false;
+                element.idList = idList;
+              }
+            });
+            if(notfound) {
+              userArray.push(userObject);
+            }
+          }
           
-          fs.appendFile('storeID.txt', JSON.stringify(userObject) /**+ '*' */, (err) => {
+          fs.writeFile('storeID.txt', JSON.stringify(userArray), (err) => {
             // throws an error, you could also catch it here
             if (err) throw err;
         
             // success case, the file was saved
             console.log('user saved!');
-          }); 
+          });
 
           app.use(express.static("public"));
           res.render('play', {
@@ -330,10 +352,6 @@ request(options, callback); */
 
 console.log('Listening on 8888');
 app.listen(8888);
-console.log(userID);
-console.log(spotifyURL);
-console.log(imageURL);
-console.log(display_name);
 
 /**
  * CODE FOR STORING USER STUFF IN JSON OBJECT
