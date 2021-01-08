@@ -20,6 +20,13 @@ body {
   width: 60%;
 }
 
+.friendshare {
+    font-family: 'UrbanRetro';
+    text-transform: uppercase;
+    left: 40%;
+    top: 30%;
+  }
+
 .friendbox {
   background: rgba(0, 0, 0, 0.7);
   width: 100%;

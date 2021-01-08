@@ -11,10 +11,12 @@ body {
 
 .container {
     font-family: UrbanRetro;
+    text-transform: uppercase;
     position: absolute;
+    
     left: 5%;
     top: 12%;
-    width: fit-content;
+    width: 90%;
     height: fit-content; 
     background-color: none;
     padding: 0px;

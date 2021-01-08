@@ -29,6 +29,11 @@ const fs = require('fs');
 const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 
 
+var myCss = {
+    style : fs.readFileSync('public/css/play.css','utf8')
+};
+
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -186,7 +191,7 @@ app.get('/play', function(req, res) {
             if(element.id == userID) {
               ourPlaylist = element.idList;
             }
-            if(element.display_name.toLowerCase().includes(friend.toLowerCase())) {
+            if(friend != '' && element.display_name.toLowerCase().includes(friend.toLowerCase())) {
               friendPlaylist.push(element);
             }
           });
@@ -203,7 +208,8 @@ app.get('/play', function(req, res) {
             friendPlaylist.forEach((element) => {
               display_people.push({
                 'pic': element.imageURL,
-                'name': element.display_name
+                'name': element.display_name,
+                'id': element.id,
               });
             });
             app.use(express.static("public"));
@@ -215,6 +221,70 @@ app.get('/play', function(req, res) {
       }
 
 });
+
+app.get('/play/:id', function(req, res) {
+
+  var access_token = global_access_token;
+
+  var options = {
+    url: 'https://api.spotify.com/v1/me/player/recently-played?limit=10',
+    headers: { 'Accept': 'application/json',
+'Content-Type': 'application/json',
+'Authorization': 'Bearer ' + access_token }
+  };
+
+  console.log(req.params.id);
+
+  friendID = req.params.id;
+
+  request.get(options, function(error, response, body) {
+
+  var fs = require('fs');
+  var datastr = fs.readFileSync('storeID.txt', 'utf8');
+  var userArray = JSON.parse(datastr);
+
+  var ourPlaylist = [];
+  var friendPlaylist = [];
+
+  var friendName = '';
+
+  userArray.forEach((element) => {
+    if(element.id == userID) {
+      ourPlaylist = element.idList;
+    }
+    if(friendID == element.id) {
+      friendPlaylist = element.idList;
+      friendName = element.display_name;
+    }
+  });
+
+  var sharedPlaylist = [];
+
+  ourPlaylist.forEach((element) => {
+    if(friendPlaylist.includes(element)) {
+      sharedPlaylist.push(element);
+    }
+  });
+
+  if(sharedPlaylist.length == 0) {
+    app.use(express.static("public"));
+    res.render('play', {
+      'noshared': 'No common songs found',
+      myCss: myCss
+    });
+  }
+  else {
+    app.use(express.static("public"));
+    res.render('play', {
+      'friendName': friendName,
+      'playlist': sharedPlaylist,
+      myCss: myCss
+    });
+  }
+});
+  
+});
+
 
 
 app.get('/login', function(req, res) {

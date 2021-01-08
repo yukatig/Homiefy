@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (locals.myCss) { %>
+        <%- myCss.style %>
+    <% } %>
     <link rel="stylesheet" href="play.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Playlists</title>
@@ -31,6 +34,10 @@
         </form>
     </div>
 
+    <% if (locals.friendName) { %>
+        <h3 class="friendshare">You and <%= friendName %> share these songs:</h3>
+    <% } %>
+
     <% if (locals.playlist) { %>
     <div class="slideshow-container">
         <% for (var j = 0; j < playlist.length; j++) { %>
@@ -51,17 +58,24 @@
     <% } %>
 
     <% if (locals.results) { %> 
-        <div class="results">
+        <div class="results" style="margin-bottom:10px">
             <h2>Results</h2>
             <% for (var j=0; j < results.length; j++) { %>
-                <div class='friendbox row'>
+                <a href="/play/<%= results[j].id %>"><div class='friendbox row'>
 
                     <p class="col"><img src="<%= results[j].pic %>" height="50px" width="50px"></p>
                     <p class="col" style="text-align: right;
 line-height: 50px; padding-right:10px; color:white"><%= results[j].name %></p>
 
-                </div>
+                </div></a>
             <% } %>
+        </div>
+    <% } %>
+
+    <!--TODO-->
+    <% if (locals.noshared) { %>
+        </div>
+        <h3><%= noshared %></h3>
         </div>
     <% } %>
 
