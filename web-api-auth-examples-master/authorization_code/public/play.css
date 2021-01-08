@@ -19,9 +19,9 @@ form.example input[type=text] {
   float: left;
   width: 20%;
 
-  position: fixed;
-  left: 40%;
-  top: 15%;
+  position: absolute;
+  left: 48%;
+  top: 20%;
 
   background: #f1f1f1;
   z-index: 5;
@@ -32,9 +32,9 @@ form.example button {
   float: left;
   width: 10%;
 
-  position: fixed;
-  left: 60%;
-  top: 15%;
+  position: absolute;
+  left: 68%;
+  top: 20%;
   z-index: 6;
 
   padding: 10px;
@@ -63,9 +63,9 @@ form.example::after {
 
 h1 {
   position: absolute;
-  top: 2%;
-  left: 7%;
-  font-size: 80px;
+  top: 3%;
+  left: 10%;
+  font-size: 90px;
 }
 
 .navbar {
@@ -116,10 +116,19 @@ h1 {
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
+  height: 295px;
   position: absolute;
-  left: 7%;
-  top: 25%;
-  text-align: center;
+  left: 27%;
+  top: 35%;
+  text-align: left;
+  background: rgba(0,0,0,0.7);
+}
+
+#pic {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  max-height: 295px;
 }
 
 /* Hide the images by default */
@@ -130,10 +139,17 @@ h1 {
 
 #song {
   text-transform: uppercase;
+  position: absolute;
+  left: 15%;
+  top: 20%;
+  right: 5%;
 }
 
 #artist {
   text-transform: uppercase;
+  position: absolute;
+  right: 20%;
+  top: 65%; 
 }
 
 /* Next & previous buttons */

@@ -27,9 +27,11 @@
     <div class="slideshow-container">
         <% for (var j = 0; j < ourPlaylist.length; j++) { %>
             <div class='mySlides fade'>
-                <h2><a id="song" style="text-decoration:none;color:black" href=<%= ourPlaylist[j].songref %> target="_blank"><%= ourPlaylist[j].name %></a></h2>
-                <h4><a id="artist" style="text-decoration:none;color:black" href=<%= ourPlaylist[j].artref %> target="_blank"><%= ourPlaylist[j].artname %></a></h4>
-                <a style="text-decoration:none" href=<%= ourPlaylist[j].songref %> target="_blank"><img src=<%= ourPlaylist[j].cover %>></a>
+                <h2><a id="song" style="text-decoration:none;color:white" href=<%= ourPlaylist[j].songref %> target="_blank"><%= ourPlaylist[j].name %></a></h2>
+                <h4><a id="artist" style="text-decoration:none;color:white" href=<%= ourPlaylist[j].artref %> target="_blank"><%= ourPlaylist[j].artname %></a></h4>
+                <div class="song-image">
+                    <a style="text-decoration:none" href=<%= ourPlaylist[j].songref %> target="_blank"><img id="pic" src=<%= ourPlaylist[j].cover %>></a>
+                </div>
             </div>
         <% } %>
 
@@ -68,7 +70,9 @@
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
     }
+    </script>
     
+    <script>
     var logoutButton = document.getElementById('logout');
     logoutButton.addEventListener('click', function () {
         const url = 'https://www.spotify.com/logout/';
@@ -76,7 +80,6 @@
         setTimeout(() => spotifyLogoutWindow.close(), 2000);
         window.location.href = '/';
     });
-
-    </script>
+    </script> 
 </body>
 </html>
