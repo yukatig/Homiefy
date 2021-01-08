@@ -26,6 +26,7 @@ var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 var global_access_token;
 
 const fs = require('fs');
+const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 
 
 /**
@@ -66,10 +67,16 @@ app.get('/play', function(req, res) {
       'Authorization': 'Bearer ' + access_token }
         };
 
+        console.log(req.query.search);
+        console.log(req.query.search === undefined);
+
+        var friend = req.query.search;
+
+        if(friend === undefined) {
+
         request.get(options, function(error, response, body) {
           
-          playdata = JSON.parse(body);
-          //console.log(playdata.items[0].track.album);
+          var playdata = JSON.parse(body);
 
           ourPlaylist = [];
 
@@ -78,7 +85,6 @@ app.get('/play', function(req, res) {
           var idList = [];
           for(var i = 0; i < songs.length; i++) {
             var songID = songs[i].track.id;
-            idList.push(songID);
             var artistlink = songs[i].track.album.artists[0].external_urls.spotify;
             var artistname = songs[i].track.album.artists[0].name;
             var songlink = songs[i].track.external_urls.spotify;
@@ -86,6 +92,15 @@ app.get('/play', function(req, res) {
             var songname = songs[i].track.name;
 
             ourPlaylist.push({
+              id: songID,
+              artref: artistlink,
+              artname: artistname,
+              songref: songlink,
+              name: songname,
+              cover: image
+            });
+
+            idList.push({
               id: songID,
               artref: artistlink,
               artname: artistname,
@@ -153,6 +168,51 @@ app.get('/play', function(req, res) {
             'playlist': ourPlaylist
           });
         });
+      }
+      else {
+        
+        request.get(options, function(error, response, body) {
+          
+          var playdata = JSON.parse(body);
+
+          var fs = require('fs');
+          var datastr = fs.readFileSync('storeID.txt', 'utf8');
+          var userArray = JSON.parse(datastr);
+
+          ourPlaylist = [];
+          friendPlaylist = [];
+
+          userArray.forEach((element) => {
+            if(element.id == userID) {
+              ourPlaylist = element.idList;
+            }
+            if(element.display_name.toLowerCase().includes(friend.toLowerCase())) {
+              friendPlaylist.push(element);
+            }
+          });
+
+          if(friendPlaylist.length == 0) {
+            app.use(express.static("public"));
+            res.render('play', {
+              'playlist': ourPlaylist,
+              'noResult': 'No user found'
+            });
+          }
+          else {
+            var display_people = [];
+            friendPlaylist.forEach((element) => {
+              display_people.push({
+                'pic': element.imageURL,
+                'name': element.display_name
+              });
+            });
+            app.use(express.static("public"));
+            res.render('play', {
+              'results': display_people
+            });
+          }
+        });
+      }
 
 });
 

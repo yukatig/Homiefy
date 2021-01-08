@@ -18,14 +18,22 @@
         </ul>
         <button id="logout">LOGOUT</button>
       </nav>
-    
-    <form class="example" action="action_page.php">
-        <input type="text" placeholder="Search up a friend..." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
 
+    <div class="searching">
+        <% if (locals.noResult) { %>
+            <p class="noresult">
+                <%= noResult %>
+            <p>
+        <% } %>
+        <form class="example" action="play">
+            <input type="text" placeholder="Search up a friend..." name="search">
+            <button type="submit" href="/play"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
+    <% if (locals.playlist) { %>
     <div class="slideshow-container">
-        <% for (var j = 0; j < ourPlaylist.length; j++) { %>
+        <% for (var j = 0; j < playlist.length; j++) { %>
             <div class='mySlides fade'>
                 <h2><a id="song" style="text-decoration:none;color:white" href=<%= ourPlaylist[j].songref %> target="_blank"><%= ourPlaylist[j].name %></a></h2>
                 <h4><a id="artist" style="text-decoration:none;color:white" href=<%= ourPlaylist[j].artref %> target="_blank"><%= ourPlaylist[j].artname %></a></h4>
@@ -40,6 +48,22 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
     <br>
+    <% } %>
+
+    <% if (locals.results) { %> 
+        <div class="results">
+            <h2>Results</h2>
+            <% for (var j=0; j < results.length; j++) { %>
+                <div class='friendbox row'>
+
+                    <p class="col"><img src="<%= results[j].pic %>" height="50px" width="50px"></p>
+                    <p class="col" style="text-align: right;
+line-height: 50px; padding-right:10px; color:white"><%= results[j].name %></p>
+
+                </div>
+            <% } %>
+        </div>
+    <% } %>
 
     <script>
     var slideIndex = 1;
