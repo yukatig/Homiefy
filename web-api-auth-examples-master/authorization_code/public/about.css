@@ -24,36 +24,44 @@ body {
 .navbar {
     position: fixed;
     width: 100%;
-    overflow: hidden;
+    height: 55px;
+    display: flex;
     top: 0;
     left: 0;
     background: rgba(0,0,0,0.7);
     z-index: 5;
     text-align: right;
-}
+  }
   
 .navbar ul {
     padding: 0;
     margin: 0;
     list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 } 
   
 .navbar ul li {
     padding: 1rem;
-    float: left;
 } 
   
 .navbar ul li a {
     text-decoration: none;
     text-transform: uppercase;
     color: #f4f4f4;
-    font-family: ProximaNovea;
+    font-family: UrbanRetro;
     font-size: 28px;
     text-align: center;
 }
   
 .navbar ul li a:hover {
     color: purple;
+}
+  
+#logout {
+    font-family: UrbanRetro;
+    height: 25px;
 }
 
 h1{

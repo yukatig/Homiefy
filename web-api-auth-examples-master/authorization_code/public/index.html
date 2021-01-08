@@ -42,9 +42,9 @@
           <ul>
               <li><a href="#home">Home</a></li>
               <li><a href="about.html">About</a></li>
-              <li><a href="connect.html">Connect</a></li>
+              <li><a id="playlist" href="/play">Playlist</a></li>
           </ul>
-          <button id="logout">Logout</button>
+          <button id="logout">LOGOUT</button>
         </nav>
         <div class="container2">
           <div id="home">
@@ -53,15 +53,6 @@
             <p id="tagline">MEET YOUR MUSICAL MATCH!</p>
           </div>
         </div>
-        <!-- <div id="home">
-          <h1 id="welcome">WELCOME,</h1>  
-        </div>
-        <div id="about">
-          <h1> About us</h1>
-        </div>
-        <div id="connect">
-          <h1>Connect</h1>
-        </div> -->
       
       <!--TODO-->
       <!-- <a href="/play" class="btn btn-primary" id="playlist">Playlist</a> -->
@@ -76,6 +67,20 @@
           </dl>
         </div>
       </div> 
+    </script>
+
+    <div id="agreement" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    </div>
+
+    <script>
+      var play = document.getElementById('playlist');
+      playlist.onclick = function() {
+        modal.style.display = "block";
+      }
     </script>
     
     <script id="oauth-template" type="text/x-handlebars-template">

@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="play.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Playlists</title>
 </head>
 <body>
-    <h1>Listen With Your Friends</h1>
+    <h1>PLAYLIST</h1>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a id="playlist" href="/play">Playlist</a></li>
+        </ul>
+        <button id="logout">LOGOUT</button>
+      </nav>
+    
+    <form class="example" action="action_page.php">
+        <input type="text" placeholder="Search up a friend..." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
 
     <div class="slideshow-container">
         <% for (var j = 0; j < ourPlaylist.length; j++) { %>
             <div class='mySlides fade'>
-                <h2><a style="text-decoration:none;color:black" href=<%= ourPlaylist[j].songref %> target="_blank"><%= ourPlaylist[j].name %></a></h2>
-                <h4><a style="text-decoration:none;color:black" href=<%= ourPlaylist[j].artref %> target="_blank"><h3><%= ourPlaylist[j].artname %></a></h4>
+                <h2><a id="song" style="text-decoration:none;color:black" href=<%= ourPlaylist[j].songref %> target="_blank"><%= ourPlaylist[j].name %></a></h2>
+                <h4><a id="artist" style="text-decoration:none;color:black" href=<%= ourPlaylist[j].artref %> target="_blank"><%= ourPlaylist[j].artname %></a></h4>
                 <a style="text-decoration:none" href=<%= ourPlaylist[j].songref %> target="_blank"><img src=<%= ourPlaylist[j].cover %>></a>
             </div>
         <% } %>
@@ -53,6 +68,15 @@
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
     }
+    
+    var logoutButton = document.getElementById('logout');
+    logoutButton.addEventListener('click', function () {
+        const url = 'https://www.spotify.com/logout/';
+        const spotifyLogoutWindow = window.open(url, 'Spotify Logout', 'width=700,height=500,top=40,left=40');
+        setTimeout(() => spotifyLogoutWindow.close(), 2000);
+        window.location.href = '/';
+    });
+
     </script>
 </body>
 </html>
