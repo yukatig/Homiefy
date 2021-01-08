@@ -14,6 +14,10 @@ var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
 var global_access_token;
+var userID;
+var imageURL;
+var spotifyURL;
+var display_name;
 
 var client_id = '22c6082ec6974b168bb64b966f927bcf'; // Your client id
 var client_secret = 'a46390a2779f47bea29ff16b856f6152'; // Your secret
@@ -71,20 +75,16 @@ app.get('/play', function(req, res) {
 
           var songs = playdata.items;
 
+          var idList = [];
           for(var i = 0; i < songs.length; i++) {
             var songID = songs[i].track.id;
-            fs.appendFile('storeID.txt', songID + '\n', (err) => {
-              // throws an error, you could also catch it here
-              if (err) throw err;
-          
-              // success case, the file was saved
-              console.log('ID saved!');
-            });
+            idList.push(songID);
             var artistlink = songs[i].track.album.artists[0].external_urls.spotify;
             var artistname = songs[i].track.album.artists[0].name;
             var songlink = songs[i].track.external_urls.spotify;
             var image = songs[i].track.album.images[1].url;
             var songname = songs[i].track.name;
+
             ourPlaylist.push({
               id: songID,
               artref: artistlink,
@@ -94,6 +94,37 @@ app.get('/play', function(req, res) {
               cover: image
             });
           }
+
+          console.log(idList);
+
+          var fs = require('fs');
+
+          var datastr = fs.readFileSync('storeID.txt', 'utf8');
+
+          /*
+          var dataArray = datastr.split("*");
+
+          for (i = 0; i < dataArray.length; i++) {
+            var userObject = JSON.parse(dataArray[i]);
+            if ()
+          } */
+
+          var userObject = {
+            id: userID,
+            idList: idList,
+            imageURL: imageURL,
+            spotifyURL: spotifyURL,
+            display_name: display_name
+          };
+
+          
+          fs.appendFile('storeID.txt', JSON.stringify(userObject) /**+ '*' */, (err) => {
+            // throws an error, you could also catch it here
+            if (err) throw err;
+        
+            // success case, the file was saved
+            console.log('user saved!');
+          }); 
 
           app.use(express.static("public"));
           res.render('play', {
@@ -167,6 +198,16 @@ app.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
+          //var bodyObject = JSON.parse(body);
+          userID = body.id;
+          imageURL = body.images[0].url;
+          spotifyURL = body.external_urls.spotify;
+          display_name = body.display_name;
+          console.log(userID);
+          console.log(spotifyURL);
+          console.log(imageURL);
+          console.log(display_name);
+
         });
 
         // we can also pass the token to the browser to make requests from there
@@ -289,6 +330,10 @@ request(options, callback); */
 
 console.log('Listening on 8888');
 app.listen(8888);
+console.log(userID);
+console.log(spotifyURL);
+console.log(imageURL);
+console.log(display_name);
 
 /**
  * CODE FOR STORING USER STUFF IN JSON OBJECT
