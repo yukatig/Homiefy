@@ -66,7 +66,7 @@ app.get('/play', function(req, res) {
         var access_token = global_access_token;
 
         var options = {
-          url: 'https://api.spotify.com/v1/me/player/recently-played?limit=10',
+          url: 'https://api.spotify.com/v1/me/player/recently-played?limit=50',
           headers: { 'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + access_token }
@@ -227,7 +227,7 @@ app.get('/play/:id', function(req, res) {
   var access_token = global_access_token;
 
   var options = {
-    url: 'https://api.spotify.com/v1/me/player/recently-played?limit=10',
+    url: 'https://api.spotify.com/v1/me/player/recently-played?limit=50',
     headers: { 'Accept': 'application/json',
 'Content-Type': 'application/json',
 'Authorization': 'Bearer ' + access_token }
