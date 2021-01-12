@@ -233,9 +233,9 @@ app.get('/play/:id', function(req, res) {
 'Authorization': 'Bearer ' + access_token }
   };
 
-  console.log(req.params.id);
-
+  //console.log(req.params.id);
   friendID = req.params.id;
+  console.log(friendID);
 
   request.get(options, function(error, response, body) {
 
@@ -261,11 +261,15 @@ app.get('/play/:id', function(req, res) {
   var sharedPlaylist = [];
 
   ourPlaylist.forEach((element) => {
-    if(friendPlaylist.includes(element)) {
-      sharedPlaylist.push(element);
-    }
+    friendPlaylist.forEach((friendelement) => {
+      if(friendelement.id == element.id) {
+        sharedPlaylist.push(element);
+      }
+    })
   });
 
+  console.log(sharedPlaylist);
+  
   if(sharedPlaylist.length == 0) {
     app.use(express.static("public"));
     res.render('play', {
