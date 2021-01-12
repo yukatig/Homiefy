@@ -40,9 +40,9 @@
     <script id="user-profile-template" type="text/x-handlebars-template">
         <nav class="navbar">
           <ul>
-              <li><a href="#home">Home</a></li>
+              <li><a href="localhost:8888">Home</a></li>
               <li><a href="about.html">About</a></li>
-              <li><a id="playlist" href="/play">Playlist</a></li>
+              <li><a id="playlist" href="#agreement" data-toggle="modal">Playlist</a></li>
           </ul>
           <button id="logout">LOGOUT</button>
         </nav>
@@ -53,9 +53,6 @@
             <p id="tagline">MEET YOUR MUSICAL MATCH!</p>
           </div>
         </div>
-      
-      <!--TODO-->
-      <!-- <a href="/play" class="btn btn-primary" id="playlist">Playlist</a> -->
 
       <div class="media">
         <!--<div class="pull-left">
@@ -69,18 +66,28 @@
       </div> 
     </script>
 
-    <div id="agreement" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
-      </div>
+    <div id="agreement" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <p>Do you agree to let Homiefy store your recently played song history in our database?</p>
+          <button id="yes">YES</button>
+          <button id="no" data-dismiss="modal">NO</button>
+        </div>
+      </div>  
     </div>
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-      var play = document.getElementById('playlist');
-      playlist.onclick = function() {
-        modal.style.display = "block";
-      }
+      $(document).ready(function(){
+        $("#playlist").click(function() {
+          $("#agreement").modal();
+        });
+      });  
+
+      $('#yes').click(function() {
+        window.location.href = '/play'
+      })
     </script>
     
     <script id="oauth-template" type="text/x-handlebars-template">

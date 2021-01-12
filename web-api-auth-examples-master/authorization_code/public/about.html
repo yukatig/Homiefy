@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>About</title>
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="about.css"> 
 </head>
 <body>
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="/play">Playlist</a></li>
+            <li><a id="playlist" href="#agreement" data-toggle="modal">Playlist</a></li>
         </ul>
         <button id="logout">LOGOUT</button>
     </nav>
     <div id="about" class="container">
         <h1>ABOUT US</h1>
-        <p style="word-wrap: break-word;">Homiefy is a web app created to allow you and your friends (your homies) to share your musical tastes. Our app generates a playlist of songs you and a friend have both recently listened to, helping you find your musical match.</p>
+        <p id="blurb" style="word-wrap: break-word;">Homiefy is a web app created to allow you and your friends (your homies) to share your musical tastes. Our app generates a playlist of songs you and a friend have both recently listened to, helping you find your musical match.</p>
     </div>
 
+    <div id="agreement" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <p>Do you agree to let Homiefy store your recently played song history in our database?</p>
+            <button id="yes">YES</button>
+            <button id="no" data-dismiss="modal">NO</button>
+          </div>
+        </div>  
+    </div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
+        // $(document).ready(function(){
+        //   $("#playlist").click(function() {
+        //     $("#agreement").modal();
+        //   });
+        // });  
+  
+        $('#yes').click(function() {
+          window.location.href = '/play'
+        })
+    
         var logoutButton = document.getElementById('logout');
         logoutButton.addEventListener('click', function () {
             const url = 'https://www.spotify.com/logout/';

@@ -27,13 +27,6 @@
     height: auto;
 }
 
-/* #aboutbg {
-    position: fixed;
-    max-width: 100%;
-    height: auto;
-    top: 50%;
-    right: 0;
-} */
 
 html {
     scroll-behavior: smooth;
@@ -41,9 +34,6 @@ html {
 
 body {
     font-family: 'UrbanRetro';
-    /* height: 100%; */
-    /* position: relative; */
-    /* z-index: -5; */
     margin: 0;
     padding: 0;     
 }
@@ -84,17 +74,6 @@ body {
     padding: 0px;
     font-size: 60px;
 }
-
-/* .container1 {
-    font-family: ProximaNovea;
-    position: absolute;
-    left: 150px;
-    top: 200px;
-    width: 1000px;
-    height: 200px;
-    background-color: none;
-    padding: 0px;
-}  */
 
 h1 {
     font-size: 120px;
@@ -168,116 +147,25 @@ a {
     height: 25px;
 }
 
-/* .container4{
-    font-family: ProximaNovea;
-    position: absolute;
-    left: 150px;
-    top: 825px; */
-    /* width: 1000px;
-    height: 200px; */
-    /* color: white;
-    background-color: none;
-    padding: 0px;
-} */
-
-/* .container5{
-    font-family: ProximaNovaBold;
-    position: absolute;
-    left: 150px;
-    top: 960px;
-    width: 1100px; */
-    /* height: 200px;  */
-    /* background-color: none; */
-    /* padding: 0px;
-} */
-
-#blurb {
-    font-size: 35px;
-    font-weight: 800;
-    color: white;
-    text-align: left;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 80%; 
 }
 
-/* #home {
-    width: 100%;
-    height: 600px;
-    background: url("../templates/musicapp/aboutfinal.png");
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
-
-#about {
-    width: 100%;
-    height: 600px;
-    background: url("../templates/musicapp/opacblack.png");
-    display: inline-block;
-}
-
-#connect {
-    width: 100%;
-    height: 600px;
-    background: url("../templates/musicapp/tokyobg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: inline-block;
-}
-
-
-/* section#home {
-    height: 500px;
+#yes {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../templates/musicapp/aboutfinal.png') no-repeat center center/cover;;
-} 
-
-section#about {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 500px;
-    height: 500px;
-    background: url('../templates/musicapp/opacblack.png') no-repeat center center/cover;;
+    bottom: 10%;
+    left: 30%;
 }
 
-section#connect{   
-    background: url('./opactokyo.png') no-repeat center center/cover;;
-} */
+#no {
+    position: fixed;
+    bottom: 10%;
+    right: 30%;
+}
 
-/* #big_name {
-    text-align: right;
-    color: white;
-    margin-top: -40px;      
-} */
-    
-/* h1 {
-    margin: 0;
-    margin-right: 20px;
-    margin-top: 50px;
-    font-size: 100px;
-    font-weight: bold;
-    letter-spacing: 40px;     
-} */
-    
-/* #tagline {
-    text-align: center;
-    margin-top: 60px;
-    font-weight: bold;     
-} */
-    
-/* body {
-    background-color: rgb(168, 218, 203);
-    font-family: 'lemonmilkregular';     
-} */
-    
-/* a {
-    color: #FFFFFF;
-    text-decoration: none;      
-}  */
-   
 
 
 

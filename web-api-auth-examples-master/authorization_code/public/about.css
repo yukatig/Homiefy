@@ -7,19 +7,19 @@ body {
     background: url("/templates/musicapp/opacblack.png");
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: UrbanRetro;
 }
 
 .container {
-    font-family: UrbanRetro;
     text-transform: uppercase;
-    position: absolute;
-    
-    left: 5%;
+    position: fixed;
+    left: 7%;
     top: 12%;
+
     width: 90%;
     height: fit-content; 
     background-color: none;
-    padding: 0px;
+    padding-right: 5%;
     text-align: left;
 } 
 
@@ -73,7 +73,27 @@ h1{
     color: white;
 }
 
-p {
+#blurb {
+    margin-top: 5%;
     font-size: 36px;
     color: white;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 80%; 
+}
+
+#yes {
+    position: fixed;
+    bottom: 10%;
+    left: 30%;
+}
+
+#no {
+    position: fixed;
+    bottom: 10%;
+    right: 30%;
 }
